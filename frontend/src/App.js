@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import './App.css';
+import "./App.css";
 import axios from "axios";
 import Layout from "./components/basic/layout";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -9,7 +9,7 @@ import LineComponents from "./components/LineComponents";
 import DoughnutComponent from "./components/DoughnutComponent";
 import RadarComponent from "./components/RadarComponent";
 import PolarComponent from "./components/PolarComponent";
-
+import { Outlet } from "react-router-dom";
 
 function App() {
   const [data, setData] = useState([]);
@@ -25,11 +25,13 @@ function App() {
     fetchData();
   }, []);
   return (
-    <div>
+
+    <>
      
-    <div className="App">
-    <Layout/> 
-   <BarComponents data={data} />
+      <div className="App">
+      {/* <Layout />
+        <Outlet/> */}
+        <BarComponents data={data} />
         <PieComponent data={data} />
         <LineComponents data={data} />
         <DoughnutComponent data={data} />
@@ -37,8 +39,10 @@ function App() {
         <BarComponents data={data} />
         <PolarComponent data={data} />
         <LineComponents data={data} />
-    </div>
-    </div>
+      </div>
+     
+      
+    </>
   );
 }
 

@@ -44,14 +44,7 @@
     transition: all 800ms;
     
 }
-.lang-dropdown a{
-    display: block;
-    padding: 10px 15px;
-    text-decoration: none;
-}
-.lang-dropdown a:hover{
-    background: #f1f1f1;
-}
+
 .show-only-mobile{
     display: none;
 }

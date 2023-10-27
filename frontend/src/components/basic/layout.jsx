@@ -1,16 +1,37 @@
 import React, { useRef, useState } from "react";
 import SideBar from "./sidebar";
+import { useEffect } from "react";
+import axios from "axios";
 import {
   MdLightMode,
   MdDarkMode,
 } from "react-icons/md";
 import "./layout.css";
+import BarComponents from "../BarComponents";
+import DoughnutComponent from "../DoughnutComponent";
+import RadarComponent from "../RadarComponent";
+import PolarComponent from "../PolarComponent";
+import PieComponent from "../PieComponent";
+import LineComponents from "../LineComponents";
+
 
 const Layout = () => {
   const [themeStatus, setThemeStatus] = useState(0);
+  const [data, setData] = useState([]);
   const [themeBg, setThemeBg] = useState("light");
 
   const themeMode = useRef(null);
+
+  useEffect(() => {
+    // Load JSON data
+    const fetchData = async () => {
+      await axios
+        .get("http://localhost:8080/api/data")
+        .then((res) => setData(res.data))
+        .catch((err) => console.log(err));
+    };
+    fetchData();
+  }, []);
 
   const themeSetter = (e) => {
     e.preventDefault();
@@ -68,6 +89,14 @@ const Layout = () => {
               </div>
             </div>
           </div>
+          <BarComponents data={data} />
+        {/* <PieComponent data={data} />
+        <LineComponents data={data} />
+        <DoughnutComponent data={data} />
+        <RadarComponent data={data} />
+        <BarComponents data={data} />
+        <PolarComponent data={data} />
+        <LineComponents data={data} /> */}
         </div>
       </div>
     </div>

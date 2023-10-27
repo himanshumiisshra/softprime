@@ -38,17 +38,17 @@ const SideBar = ({ themeColor }) => {
         >
           <ul className="navbar">
             <li className="nav-item">
-              <a className="nav-link" href="http://localhost:3000">
+              <a className="nav-link" href="http://localhost:3000/bar">
                 <MdBarChart /> &nbsp; &nbsp;<span>Bar Graph</span>
               </a>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="http://localhost:3000">
+              <a className="nav-link" href="http://localhost:3000/doughnut">
                 <BiDoughnutChart /> &nbsp; &nbsp;<span>Doughnut Graph</span>
               </a>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="http://localhost:3000">
+              <a className="nav-link" href="http://localhost:3000/line">
                 <VscGraphLine /> &nbsp; &nbsp;<span>Line Graph</span>
               </a>
             </li>
